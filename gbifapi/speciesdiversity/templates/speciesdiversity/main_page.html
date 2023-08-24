@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Página de app</title>
+     <link rel="stylesheet" type="text/css" href="/static/speciesdiversity/styles.css">
+</head>
+<body>
+    <header>Diversidad de especies por país</header>
+
+    <section>
+        {% block country_selection %}
+            {% include 'speciesdiversity/country_selection.html' with countries=countries %}
+        {% endblock %}
+    </section>
+
+   <section>
+    {% if selected_country and species_abundances %}
+        <h2>Resultados de especies de {{ selected_country }}</h2>
+        <table>
+            <tr>
+                <th>Especie</th>
+                <th>Abundancia</th>
+            </tr>
+            {% for species, abundance in species_abundances.items %}
+            <tr>
+                <td>{{ species }}</td>
+                <td>{{ abundance }}</td>
+            </tr>
+        {% endfor %}
+
+
+
+        </table>
+    {% endif %}
+</section>
+
+    <section>
+        {% if selected_country %}
+        <table>
+            <tr>
+                <th>N Población total: {{ total_records }}</th>
+                <th>Índice de Shannon: {{ diversity_index }}</th>
+                <th>Índice de Simpson: {{ richness_index }}</th>
+            </tr>
+
+        </table>
+        {% endif %}
+    </section>
+
+  <section>
+    {% if selected_country %}
+        <img class="centered-image" src="{% static 'grafica.png' %}" alt="Gráfica de Barras">
+    {% endif %}
+</section>
+
+
+</body>
+</html>

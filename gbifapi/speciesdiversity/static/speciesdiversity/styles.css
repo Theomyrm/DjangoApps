@@ -1,0 +1,31 @@
+/* speciesdiversity/static/speciesdiversity/styles.css */
+
+/* Estilos para la ventana con scroll */
+.scrollable-table {
+    max-height: 500px; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    height: auto;    /* La altura se ajustará automáticamente para mantener la proporción */
+}
+.centered-image {
+    display: block;
+    margin: 0 auto;
+}
